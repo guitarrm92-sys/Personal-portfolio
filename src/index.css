@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Rubik+One&family=Roboto:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-rubik: "Rubik One", system-ui, sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --color-brand-green: #8BA892;
+  --color-brand-dark: #1A1A1A;
+  --color-brand-bg: #F5F5F5;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-dark font-sans antialiased;
+  }
+}
