@@ -146,16 +146,37 @@ const Hero = () => {
         <div className="w-full flex justify-center h-auto z-50 pointer-events-none pb-12">
           <div className="p-4 bg-white/40 backdrop-blur-md border border-white/20 rounded-[24px] flex flex-col md:flex-row gap-4 items-center w-full max-w-lg lg:max-w-none lg:w-fit shadow-2xl pointer-events-auto">
             <div className="flex gap-4 w-full md:w-auto">
-              <button className="bg-[#4F6F5D] text-white flex-1 md:w-[180px] h-[50px] rounded-xl font-bold hover:bg-[#3D5648] transition-all shadow-lg text-sm md:text-base">
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('projects');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="bg-[#4F6F5D] text-white flex-1 md:w-[180px] h-[50px] rounded-xl font-bold hover:bg-[#3D5648] transition-all shadow-lg text-sm md:text-base"
+              >
                 Proyectos
               </button>
-              <button className="bg-[#5E7A67] text-white flex-1 md:w-[180px] h-[50px] rounded-xl font-bold hover:bg-[#4E6656] transition-all shadow-lg text-sm md:text-base px-2">
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="bg-[#5E7A67] text-white flex-1 md:w-[180px] h-[50px] rounded-xl font-bold hover:bg-[#4E6656] transition-all shadow-lg text-sm md:text-base px-2"
+              >
                 Trabajemos juntos
               </button>
             </div>
-            <button className="bg-white border border-gray-100 text-gray-500 w-full md:w-[180px] h-[50px] rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-sm text-sm">
+            <a 
+              href="https://www.linkedin.com/in/giovanny-gomez-ui-ux/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white border border-gray-100 text-gray-500 w-full md:w-[180px] h-[50px] rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-sm text-sm"
+            >
               LINKEDIN
-            </button>
+            </a>
           </div>
         </div>
       </div>
