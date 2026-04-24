@@ -57,7 +57,7 @@ const NomaCaseStudy = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/assets/images/wireframes noma/Noma-portrait-ver3.png" 
+            src="/assets/images/wireframes-noma/Noma-portrait-ver3.png" 
             alt="Noma Background Desktop" 
             className="hidden md:block w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -1348,14 +1348,14 @@ const NomaCaseStudy = () => {
             {/* Desktop Display (Staggered) */}
             <div className="hidden md:flex items-center justify-center -space-x-16">
               {[
-                { id: 1, label: 'Splash', rotate: -14, y: 80, scale: 0.39, z: 10, img: '/assets/images/wireframes noma/noma1.png' },
-                { id: 2, label: 'Login', rotate: -10, y: 50, scale: 0.45, z: 20, img: '/assets/images/wireframes noma/noma2.png' },
-                { id: 3, label: 'Home', rotate: -6, y: 25, scale: 0.50, z: 30, img: '/assets/images/wireframes noma/noma3.png' },
-                { id: 4, label: 'Menu', rotate: -2, y: 10, scale: 0.56, z: 40, img: '/assets/images/wireframes noma/noma 4.png' },
-                { id: 5, label: 'Product', rotate: 2, y: 10, scale: 0.56, z: 40, img: '/assets/images/wireframes noma/noma5.png' },
-                { id: 6, label: 'Cart', rotate: 6, y: 25, scale: 0.50, z: 30, img: '/assets/images/wireframes noma/noma6.png' },
-                { id: 7, label: 'Checkout', rotate: 10, y: 50, scale: 0.45, z: 20, img: '/assets/images/wireframes noma/noma7.png' },
-                { id: 8, label: 'Success', rotate: 14, y: 80, scale: 0.39, z: 10, img: '/assets/images/wireframes noma/noma8.png' },
+                { id: 1, label: 'Splash', rotate: -14, y: 80, scale: 0.39, z: 10, img: '/assets/images/wireframes-noma/noma1.png' },
+                { id: 2, label: 'Login', rotate: -10, y: 50, scale: 0.45, z: 20, img: '/assets/images/wireframes-noma/noma2.png' },
+                { id: 3, label: 'Home', rotate: -6, y: 25, scale: 0.50, z: 30, img: '/assets/images/wireframes-noma/noma3.png' },
+                { id: 4, label: 'Menu', rotate: -2, y: 10, scale: 0.56, z: 40, img: '/assets/images/wireframes-noma/noma-4.png' },
+                { id: 5, label: 'Product', rotate: 2, y: 10, scale: 0.56, z: 40, img: '/assets/images/wireframes-noma/noma5.png' },
+                { id: 6, label: 'Cart', rotate: 6, y: 25, scale: 0.50, z: 30, img: '/assets/images/wireframes-noma/noma6.png' },
+                { id: 7, label: 'Checkout', rotate: 10, y: 50, scale: 0.45, z: 20, img: '/assets/images/wireframes-noma/noma7.png' },
+                { id: 8, label: 'Success', rotate: 14, y: 80, scale: 0.39, z: 10, img: '/assets/images/wireframes-noma/noma8.png' },
               ].map((screen, index) => (
                 <motion.div
                   key={screen.id}
@@ -1396,23 +1396,23 @@ const NomaCaseStudy = () => {
                 }}
               >
                 {[
-                  { id: 1, label: 'Splash', img: '/assets/images/wireframes noma/noma1.png' },
-                  { id: 2, label: 'Login', img: '/assets/images/wireframes noma/noma2.png' },
-                  { id: 3, label: 'Home', img: '/assets/images/wireframes noma/noma3.png' },
-                  { id: 4, label: 'Menu', img: '/assets/images/wireframes noma/noma 4.png' },
-                  { id: 5, label: 'Product', img: '/assets/images/wireframes noma/noma5.png' },
-                  { id: 6, label: 'Cart', img: '/assets/images/wireframes noma/noma6.png' },
-                  { id: 7, label: 'Checkout', img: '/assets/images/wireframes noma/noma7.png' },
-                  { id: 8, label: 'Success', img: '/assets/images/wireframes noma/noma8.png' },
+                  { id: 1, label: 'Splash', img: '/assets/images/wireframes-noma/noma1.png' },
+                  { id: 2, label: 'Login', img: '/assets/images/wireframes-noma/noma2.png' },
+                  { id: 3, label: 'Home', img: '/assets/images/wireframes-noma/noma3.png' },
+                  { id: 4, label: 'Menu', img: '/assets/images/wireframes-noma/noma-4.png' },
+                  { id: 5, label: 'Product', img: '/assets/images/wireframes-noma/noma5.png' },
+                  { id: 6, label: 'Cart', img: '/assets/images/wireframes-noma/noma6.png' },
+                  { id: 7, label: 'Checkout', img: '/assets/images/wireframes-noma/noma7.png' },
+                  { id: 8, label: 'Success', img: '/assets/images/wireframes-noma/noma8.png' },
                   // Duplicated for loop
-                  { id: 9, label: 'Splash', img: '/assets/images/wireframes noma/noma1.png' },
-                  { id: 10, label: 'Login', img: '/assets/images/wireframes noma/noma2.png' },
-                  { id: 11, label: 'Home', img: '/assets/images/wireframes noma/noma3.png' },
-                  { id: 12, label: 'Menu', img: '/assets/images/wireframes noma/noma 4.png' },
-                  { id: 13, label: 'Product', img: '/assets/images/wireframes noma/noma5.png' },
-                  { id: 14, label: 'Cart', img: '/assets/images/wireframes noma/noma6.png' },
-                  { id: 15, label: 'Checkout', img: '/assets/images/wireframes noma/noma7.png' },
-                  { id: 16, label: 'Success', img: '/assets/images/wireframes noma/noma8.png' },
+                  { id: 9, label: 'Splash', img: '/assets/images/wireframes-noma/noma1.png' },
+                  { id: 10, label: 'Login', img: '/assets/images/wireframes-noma/noma2.png' },
+                  { id: 11, label: 'Home', img: '/assets/images/wireframes-noma/noma3.png' },
+                  { id: 12, label: 'Menu', img: '/assets/images/wireframes-noma/noma-4.png' },
+                  { id: 13, label: 'Product', img: '/assets/images/wireframes-noma/noma5.png' },
+                  { id: 14, label: 'Cart', img: '/assets/images/wireframes-noma/noma6.png' },
+                  { id: 15, label: 'Checkout', img: '/assets/images/wireframes-noma/noma7.png' },
+                  { id: 16, label: 'Success', img: '/assets/images/wireframes-noma/noma8.png' },
                 ].map((screen, i) => (
                   <div key={i} className="flex-shrink-0 w-[224px]">
                     <img 
@@ -1456,7 +1456,7 @@ const NomaCaseStudy = () => {
               >
                 <div className="relative w-[280px] md:w-[320px]">
                   <img 
-                    src="/assets/images/wireframes noma/noma5-1.png" 
+                    src="/assets/images/wireframes-noma/noma5-1.png" 
                     alt="Features Mockup" 
                     className="w-full h-auto rounded-[40px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[4px] border-[#D4A373]"
                     referrerPolicy="no-referrer"
