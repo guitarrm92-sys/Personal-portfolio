@@ -134,7 +134,7 @@ const Hero = () => {
           >
             <div className="relative w-full max-w-[380px] md:max-w-[450px] lg:max-w-[600px] lg:absolute lg:bottom-0 lg:right-0 z-20">
               <img 
-                src="/assets/images/photo-herocomplete.png" 
+                src="/public/assets/images/photo-herocomplete.png" 
                 alt="Giovanny Gómez" 
                 className="w-full h-auto block object-contain relative z-20 scale-125 lg:scale-150 origin-bottom lg:origin-bottom-right translate-y-[2px]"
               />
@@ -191,7 +191,7 @@ const Projects = () => {
       title: "Noma",
       type: "App de alimentación saludable",
       description: "Diseñé una app que elimina el esfuerzo de comer bien, transformando la nutrición en un hábito simple y sostenible.",
-      image: "/assets/images/wireframes-noma/noma-portrait-ver2.png",
+      image: "/public/assets/images/wireframes-noma/noma-portrait-ver2.png",
       color: "bg-[#2D4A3E]",
       link: "/projects/noma"
     },
@@ -199,7 +199,7 @@ const Projects = () => {
       title: "Nivio",
       type: "App de finanzas personales",
       description: "Nivio Finance es una aplicación móvil diseñada para ayudarte a tomar el control de tus finanzas personales de forma simple, visual y transparente.",
-      image: "/assets/images/nivio-portrait.png",
+      image: "/public/assets/images/nivio-portrait.png",
       color: "bg-[#4A90E2]",
       link: "/projects/nivio"
     },
@@ -208,7 +208,7 @@ const Projects = () => {
       title: "Lets travel",
       type: "App de planificación de viajes",
       description: "Plataforma integral para descubrir destinos, organizar itinerarios y gestionar reservas de forma colaborativa.",
-      image: "/assets/images/lets-travel-portrait.png",
+      image: "/public/assets/images/lets-travel-portrait.png",
       color: "bg-[#E67E22]"
     },
     {
