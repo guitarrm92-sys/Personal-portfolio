@@ -78,7 +78,7 @@ const NivioCaseStudy = () => {
             referrerPolicy="no-referrer"
           />
           <img 
-            src="/assets/images/nivio-images/Fondo-nivio-movil.png" 
+            src="/assets/images/nivio-images/fondo-nivio-movil.png" 
             alt="Background Mobile" 
             className="w-full h-full object-cover md:hidden"
             referrerPolicy="no-referrer"

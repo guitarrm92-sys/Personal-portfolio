@@ -191,7 +191,7 @@ const Projects = () => {
       title: "Noma",
       type: "App de alimentación saludable",
       description: "Diseñé una app que elimina el esfuerzo de comer bien, transformando la nutrición en un hábito simple y sostenible.",
-      image: "/assets/images/wireframes-noma/Noma-portrait-ver2.png",
+      image: "/assets/images/wireframes-noma/noma-portrait-ver2.png",
       color: "bg-[#2D4A3E]",
       link: "/projects/noma"
     },

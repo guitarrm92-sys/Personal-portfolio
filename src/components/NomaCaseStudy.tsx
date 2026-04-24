@@ -57,7 +57,7 @@ const NomaCaseStudy = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/assets/images/wireframes-noma/Noma-portrait-ver3.png" 
+            src="/assets/images/wireframes-noma/noma-portrait-ver3.png" 
             alt="Noma Background Desktop" 
             className="hidden md:block w-full h-full object-cover"
             referrerPolicy="no-referrer"
