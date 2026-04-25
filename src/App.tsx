@@ -193,7 +193,7 @@ const Projects = () => {
       title: "Noma",
       type: "App de alimentación saludable",
       description: "Diseñé una app que elimina el esfuerzo de comer bien, transformando la nutrición en un hábito simple y sostenible.",
-      image: `${ASSET_BASE}assets/images/wireframes-noma/noma-portrait-ver2.png`,
+      image: "/assets/images/wireframes-noma/noma-portrait-ver2.png",
       color: "bg-[#2D4A3E]",
       link: "/projects/noma"
     },
@@ -201,7 +201,7 @@ const Projects = () => {
       title: "Nivio",
       type: "App de finanzas personales",
       description: "Nivio Finance es una aplicación móvil diseñada para ayudarte a tomar el control de tus finanzas personales de forma simple, visual y transparente.",
-      image: `${ASSET_BASE}assets/images/nivio-portrait.png`,
+      image: "/assets/images/nivio-portrait.png",
       color: "bg-[#4A90E2]",
       link: "/projects/nivio"
     },
