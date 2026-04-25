@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig, loadEnv} from 'vite';
+import {defineConfig, loadEnv, normalizePath} from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig(({mode}) => {
@@ -13,7 +13,7 @@ export default defineConfig(({mode}) => {
       viteStaticCopy({
         targets: [
           {
-            src: 'assets',
+            src: normalizePath(path.resolve(__dirname, 'assets')),
             dest: '.'
           }
         ]
