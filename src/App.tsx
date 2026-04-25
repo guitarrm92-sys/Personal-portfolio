@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
 import NomaCaseStudy from "./components/NomaCaseStudy";
 import NivioCaseStudy from "./components/NivioCaseStudy";
+import nomaPortrait from "./assets/images/noma-portrait.png";
+import nivioPortrait from "./assets/images/nivio-portrait.png";
 
 const ASSET_BASE = import.meta.env.BASE_URL;
 
@@ -193,7 +195,7 @@ const Projects = () => {
       title: "Noma",
       type: "App de alimentación saludable",
       description: "Diseñé una app que elimina el esfuerzo de comer bien, transformando la nutrición en un hábito simple y sostenible.",
-      image: "/assets/images/wireframes-noma/noma-portrait-ver2.png",
+      image: nomaPortrait,
       color: "bg-[#2D4A3E]",
       link: "/projects/noma"
     },
@@ -201,7 +203,7 @@ const Projects = () => {
       title: "Nivio",
       type: "App de finanzas personales",
       description: "Nivio Finance es una aplicación móvil diseñada para ayudarte a tomar el control de tus finanzas personales de forma simple, visual y transparente.",
-      image: "/assets/images/nivio-portrait.png",
+      image: nivioPortrait,
       color: "bg-[#4A90E2]",
       link: "/projects/nivio"
     },
