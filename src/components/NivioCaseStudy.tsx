@@ -8,6 +8,8 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const ASSET_BASE = import.meta.env.BASE_URL;
+
 const NivioCaseStudy = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeStructureTab, setActiveStructureTab] = useState("Inicio");
@@ -72,13 +74,13 @@ const NivioCaseStudy = () => {
       <section className="relative min-h-[700px] lg:h-screen flex items-center overflow-hidden bg-white pt-16">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/nivio-images/fondo-nivio-hero.png" 
+            src={`${ASSET_BASE}assets/images/nivio-images/fondo-nivio-hero.png`} 
             alt="Background" 
             className="w-full h-full object-cover hidden md:block"
             referrerPolicy="no-referrer"
           />
           <img 
-            src="/assets/images/nivio-images/fondo-nivio-movil.png" 
+            src={`${ASSET_BASE}assets/images/nivio-images/fondo-nivio-movil.png`} 
             alt="Background Mobile" 
             className="w-full h-full object-cover md:hidden"
             referrerPolicy="no-referrer"
@@ -168,9 +170,9 @@ const NivioCaseStudy = () => {
                     <pattern id="pattern2_1162_50308" patternContentUnits="objectBoundingBox" width="1" height="1">
                       <use href="#image2_1162_50308" transform="scale(0.00242718 0.00109051)"/>
                     </pattern>
-                    <image id="image0_1162_50308" width="412" height="963" href="/assets/images/1.png"/>
-                    <image id="image1_1162_50308" width="412" height="917" href="/assets/images/2.png"/>
-                    <image id="image2_1162_50308" width="412" height="917" href="/assets/images/3.png"/>
+                    <image id="image0_1162_50308" width="412" height="963" href={`${ASSET_BASE}assets/images/1.png`}/>
+                    <image id="image1_1162_50308" width="412" height="917" href={`${ASSET_BASE}assets/images/2.png`}/>
+                    <image id="image2_1162_50308" width="412" height="917" href={`${ASSET_BASE}assets/images/3.png`}/>
                   </defs>
                 </svg>
               </div>
@@ -231,7 +233,7 @@ const NivioCaseStudy = () => {
               >
                 <div className="w-full h-full overflow-hidden rounded-[2.8rem] bg-white">
                   <img 
-                    src="/assets/images/3.png" 
+                    src={`${ASSET_BASE}assets/images/3.png`} 
                     alt="Nivio App Context Mockup" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -465,7 +467,7 @@ const NivioCaseStudy = () => {
               {/* Stylized Card Mockup */}
               <div className="relative w-full max-w-[500px]">
                 <img 
-                  src="/assets/images/niviocard.svg" 
+                  src={`${ASSET_BASE}assets/images/niviocard.svg`} 
                   alt="Nivio Card" 
                   className="w-full h-auto drop-shadow-2xl"
                   referrerPolicy="no-referrer"
@@ -487,7 +489,7 @@ const NivioCaseStudy = () => {
             className="w-full max-w-[320px]"
           >
             <img 
-              src="/assets/images/nivio-images/logo-nivio-color.svg" 
+              src={`${ASSET_BASE}assets/images/nivio-images/logo-nivio-color.svg`} 
               alt="Logo Nivio Color" 
               className="w-full h-auto"
               referrerPolicy="no-referrer"
@@ -583,7 +585,7 @@ const NivioCaseStudy = () => {
               
               <div className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-xl p-4 lg:p-12 shadow-sm">
                 <img 
-                  src="/assets/images/nivio-images/arquitectura-de-la-informacion-nivio.png" 
+                  src={`${ASSET_BASE}assets/images/nivio-images/arquitectura-de-la-informacion-nivio.png`} 
                   alt="Arquitectura de la Información Nivio" 
                   className="w-full h-auto"
                   referrerPolicy="no-referrer"
@@ -1140,7 +1142,7 @@ const NivioCaseStudy = () => {
                           className="absolute left-0 top-0 w-[220px] md:w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2.5rem] p-2 shadow-2xl z-10"
                         >
                           <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                            <img src="/assets/images/nivio-images/hi-fi-wireframe-nivio/2.png" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                            <img src={`${ASSET_BASE}assets/images/nivio-images/hi-fi-wireframe-nivio/2.png`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           </div>
                         </motion.div>
                         <motion.div 
@@ -1150,7 +1152,7 @@ const NivioCaseStudy = () => {
                           className="absolute right-0 bottom-0 w-[220px] md:w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2.5rem] p-2 shadow-2xl"
                         >
                           <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                            <img src="/assets/images/nivio-images/hi-fi-wireframe-nivio/44.png" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                            <img src={`${ASSET_BASE}assets/images/nivio-images/hi-fi-wireframe-nivio/44.png`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           </div>
                         </motion.div>
                     </div>

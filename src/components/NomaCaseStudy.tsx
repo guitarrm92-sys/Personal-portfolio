@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const ASSET_BASE = import.meta.env.BASE_URL;
+
 const NomaCaseStudy = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -57,13 +59,13 @@ const NomaCaseStudy = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/assets/images/wireframes-noma/noma-portrait-ver3.png" 
+            src={`${ASSET_BASE}assets/images/wireframes-noma/noma-portrait-ver3.png`} 
             alt="Noma Background Desktop" 
             className="hidden md:block w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
           <img 
-            src="/assets/images/noma-portrait-movil.png" 
+            src={`${ASSET_BASE}assets/images/noma-portrait-movil.png`} 
             alt="Noma Background Mobile" 
             className="block md:hidden w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -771,7 +773,7 @@ const NomaCaseStudy = () => {
             >
               <div className="w-full rounded-xl overflow-hidden bg-white border border-[#2F4A3E]/5 flex items-center justify-center">
                 <img 
-                  src="/assets/images/user-flow-noma.png" 
+                  src={`${ASSET_BASE}assets/images/user-flow-noma.png`} 
                   alt="Diagrama de flujo de usuario NOMA" 
                   className="w-full h-auto object-contain"
                   referrerPolicy="no-referrer"
@@ -868,7 +870,7 @@ const NomaCaseStudy = () => {
                 <div className="bg-white rounded-xl p-[15px] md:p-16 shadow-sm border border-[#2F4A3E]/5">
                   <div className="w-full rounded-xl flex items-center justify-center overflow-hidden">
                     <img 
-                      src="/assets/images/midfi-wireframe-noma.png" 
+                      src={`${ASSET_BASE}assets/images/midfi-wireframe-noma.png`} 
                       alt="Mid-fi wireframes NOMA" 
                       className="w-full h-auto object-contain"
                       referrerPolicy="no-referrer"
@@ -1107,10 +1109,10 @@ const NomaCaseStudy = () => {
                       <div className="space-y-6 overflow-hidden">
                         <div className="flex gap-2 md:gap-4 overflow-x-auto pb-4 scrollbar-hide">
                           {[
-                            { title: 'Ensalada de atún con aguacate', img: '/assets/images/food1.png' },
-                            { title: 'Bowl saludable de pollo estilo fajita', img: '/assets/images/food2.png' },
-                            { title: 'Ensalada de pollo fajita', img: '/assets/images/food3.png' },
-                            { title: 'Tazon de yogurt con frutos y miel', img: '/assets/images/food4.png' }
+                            { title: 'Ensalada de atún con aguacate', img: `${ASSET_BASE}assets/images/food1.png` },
+                            { title: 'Bowl saludable de pollo estilo fajita', img: `${ASSET_BASE}assets/images/food2.png` },
+                            { title: 'Ensalada de pollo fajita', img: `${ASSET_BASE}assets/images/food3.png` },
+                            { title: 'Tazon de yogurt con frutos y miel', img: `${ASSET_BASE}assets/images/food4.png` }
                           ].map((item, i) => (
                             <div key={i} className="w-[100px] md:w-[120px] flex-shrink-0 space-y-2">
                               <div className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-xl overflow-hidden bg-gray-100 border border-[#2F4A3E]/5">
@@ -1238,7 +1240,7 @@ const NomaCaseStudy = () => {
                         <div className="bg-[#F4F7F6] p-[15px] rounded-xl border border-[#2F4A3E]/5 space-y-3 shadow-sm overflow-hidden">
                           <div className="flex flex-col sm:flex-row gap-4">
                             <div className="w-full sm:w-[150px] h-[110px] rounded-lg overflow-hidden flex-shrink-0 border border-[#2F4A3E]/5">
-                              <img src="/assets/images/food1.png" alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                              <img src={`${ASSET_BASE}assets/images/food1.png`} alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
                             <div className="flex-1 space-y-2 py-1">
                               <h5 className="text-xs font-bold leading-tight text-[#2F4A3E]">Bowl de atún sellado con vegetales</h5>
@@ -1262,7 +1264,7 @@ const NomaCaseStudy = () => {
                         <div className="bg-[#8FAEA1] p-[15px] rounded-xl border border-[#2F4A3E]/5 space-y-3 shadow-md overflow-hidden">
                           <div className="flex flex-col sm:flex-row gap-4">
                             <div className="w-full sm:w-[150px] h-[110px] rounded-lg overflow-hidden flex-shrink-0 border border-white/20">
-                              <img src="/assets/images/food1.png" alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                              <img src={`${ASSET_BASE}assets/images/food1.png`} alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
                             <div className="flex-1 space-y-2 py-1">
                               <h5 className="text-xs font-bold leading-tight text-white">Bowl de atún sellado con vegetales</h5>
@@ -1348,14 +1350,14 @@ const NomaCaseStudy = () => {
             {/* Desktop Display (Staggered) */}
             <div className="hidden md:flex items-center justify-center -space-x-16">
               {[
-                { id: 1, label: 'Splash', rotate: -14, y: 80, scale: 0.39, z: 10, img: '/assets/images/wireframes-noma/noma1.png' },
-                { id: 2, label: 'Login', rotate: -10, y: 50, scale: 0.45, z: 20, img: '/assets/images/wireframes-noma/noma2.png' },
-                { id: 3, label: 'Home', rotate: -6, y: 25, scale: 0.50, z: 30, img: '/assets/images/wireframes-noma/noma3.png' },
-                { id: 4, label: 'Menu', rotate: -2, y: 10, scale: 0.56, z: 40, img: '/assets/images/wireframes-noma/noma-4.png' },
-                { id: 5, label: 'Product', rotate: 2, y: 10, scale: 0.56, z: 40, img: '/assets/images/wireframes-noma/noma5.png' },
-                { id: 6, label: 'Cart', rotate: 6, y: 25, scale: 0.50, z: 30, img: '/assets/images/wireframes-noma/noma6.png' },
-                { id: 7, label: 'Checkout', rotate: 10, y: 50, scale: 0.45, z: 20, img: '/assets/images/wireframes-noma/noma7.png' },
-                { id: 8, label: 'Success', rotate: 14, y: 80, scale: 0.39, z: 10, img: '/assets/images/wireframes-noma/noma8.png' },
+                { id: 1, label: 'Splash', rotate: -14, y: 80, scale: 0.39, z: 10, img: `${ASSET_BASE}assets/images/wireframes-noma/noma1.png` },
+                { id: 2, label: 'Login', rotate: -10, y: 50, scale: 0.45, z: 20, img: `${ASSET_BASE}assets/images/wireframes-noma/noma2.png` },
+                { id: 3, label: 'Home', rotate: -6, y: 25, scale: 0.50, z: 30, img: `${ASSET_BASE}assets/images/wireframes-noma/noma3.png` },
+                { id: 4, label: 'Menu', rotate: -2, y: 10, scale: 0.56, z: 40, img: `${ASSET_BASE}assets/images/wireframes-noma/noma-4.png` },
+                { id: 5, label: 'Product', rotate: 2, y: 10, scale: 0.56, z: 40, img: `${ASSET_BASE}assets/images/wireframes-noma/noma5.png` },
+                { id: 6, label: 'Cart', rotate: 6, y: 25, scale: 0.50, z: 30, img: `${ASSET_BASE}assets/images/wireframes-noma/noma6.png` },
+                { id: 7, label: 'Checkout', rotate: 10, y: 50, scale: 0.45, z: 20, img: `${ASSET_BASE}assets/images/wireframes-noma/noma7.png` },
+                { id: 8, label: 'Success', rotate: 14, y: 80, scale: 0.39, z: 10, img: `${ASSET_BASE}assets/images/wireframes-noma/noma8.png` },
               ].map((screen, index) => (
                 <motion.div
                   key={screen.id}
@@ -1396,23 +1398,23 @@ const NomaCaseStudy = () => {
                 }}
               >
                 {[
-                  { id: 1, label: 'Splash', img: '/assets/images/wireframes-noma/noma1.png' },
-                  { id: 2, label: 'Login', img: '/assets/images/wireframes-noma/noma2.png' },
-                  { id: 3, label: 'Home', img: '/assets/images/wireframes-noma/noma3.png' },
-                  { id: 4, label: 'Menu', img: '/assets/images/wireframes-noma/noma-4.png' },
-                  { id: 5, label: 'Product', img: '/assets/images/wireframes-noma/noma5.png' },
-                  { id: 6, label: 'Cart', img: '/assets/images/wireframes-noma/noma6.png' },
-                  { id: 7, label: 'Checkout', img: '/assets/images/wireframes-noma/noma7.png' },
-                  { id: 8, label: 'Success', img: '/assets/images/wireframes-noma/noma8.png' },
+                  { id: 1, label: 'Splash', img: `${ASSET_BASE}assets/images/wireframes-noma/noma1.png` },
+                  { id: 2, label: 'Login', img: `${ASSET_BASE}assets/images/wireframes-noma/noma2.png` },
+                  { id: 3, label: 'Home', img: `${ASSET_BASE}assets/images/wireframes-noma/noma3.png` },
+                  { id: 4, label: 'Menu', img: `${ASSET_BASE}assets/images/wireframes-noma/noma-4.png` },
+                  { id: 5, label: 'Product', img: `${ASSET_BASE}assets/images/wireframes-noma/noma5.png` },
+                  { id: 6, label: 'Cart', img: `${ASSET_BASE}assets/images/wireframes-noma/noma6.png` },
+                  { id: 7, label: 'Checkout', img: `${ASSET_BASE}assets/images/wireframes-noma/noma7.png` },
+                  { id: 8, label: 'Success', img: `${ASSET_BASE}assets/images/wireframes-noma/noma8.png` },
                   // Duplicated for loop
-                  { id: 9, label: 'Splash', img: '/assets/images/wireframes-noma/noma1.png' },
-                  { id: 10, label: 'Login', img: '/assets/images/wireframes-noma/noma2.png' },
-                  { id: 11, label: 'Home', img: '/assets/images/wireframes-noma/noma3.png' },
-                  { id: 12, label: 'Menu', img: '/assets/images/wireframes-noma/noma-4.png' },
-                  { id: 13, label: 'Product', img: '/assets/images/wireframes-noma/noma5.png' },
-                  { id: 14, label: 'Cart', img: '/assets/images/wireframes-noma/noma6.png' },
-                  { id: 15, label: 'Checkout', img: '/assets/images/wireframes-noma/noma7.png' },
-                  { id: 16, label: 'Success', img: '/assets/images/wireframes-noma/noma8.png' },
+                  { id: 9, label: 'Splash', img: `${ASSET_BASE}assets/images/wireframes-noma/noma1.png` },
+                  { id: 10, label: 'Login', img: `${ASSET_BASE}assets/images/wireframes-noma/noma2.png` },
+                  { id: 11, label: 'Home', img: `${ASSET_BASE}assets/images/wireframes-noma/noma3.png` },
+                  { id: 12, label: 'Menu', img: `${ASSET_BASE}assets/images/wireframes-noma/noma-4.png` },
+                  { id: 13, label: 'Product', img: `${ASSET_BASE}assets/images/wireframes-noma/noma5.png` },
+                  { id: 14, label: 'Cart', img: `${ASSET_BASE}assets/images/wireframes-noma/noma6.png` },
+                  { id: 15, label: 'Checkout', img: `${ASSET_BASE}assets/images/wireframes-noma/noma7.png` },
+                  { id: 16, label: 'Success', img: `${ASSET_BASE}assets/images/wireframes-noma/noma8.png` },
                 ].map((screen, i) => (
                   <div key={i} className="flex-shrink-0 w-[224px]">
                     <img 
@@ -1456,7 +1458,7 @@ const NomaCaseStudy = () => {
               >
                 <div className="relative w-[280px] md:w-[320px]">
                   <img 
-                    src="/assets/images/wireframes-noma/noma5-1.png" 
+                    src={`${ASSET_BASE}assets/images/wireframes-noma/noma5-1.png`} 
                     alt="Features Mockup" 
                     className="w-full h-auto rounded-[40px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[4px] border-[#D4A373]"
                     referrerPolicy="no-referrer"
