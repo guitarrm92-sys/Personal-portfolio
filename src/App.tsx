@@ -136,7 +136,7 @@ const Hero = () => {
           >
             <div className="relative w-full max-w-[380px] md:max-w-[450px] lg:max-w-[600px] lg:absolute lg:bottom-0 lg:right-0 z-20">
               <img 
-                src={`${ASSET_BASE}assets/images/photo-herocomplete.png`} 
+                src="/assets/images/photo-herocomplete.png" 
                 alt="Giovanny Gómez" 
                 className="w-full h-auto block object-contain relative z-20 scale-125 lg:scale-150 origin-bottom lg:origin-bottom-right translate-y-[2px]"
               />
