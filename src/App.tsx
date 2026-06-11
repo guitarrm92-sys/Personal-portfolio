@@ -4,17 +4,25 @@ import { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
 import NomaCaseStudy from "./components/NomaCaseStudy";
 import NivioCaseStudy from "./components/NivioCaseStudy";
-import nomaPortrait from "./assets/images/noma-portrait.png";
-import nivioPortrait from "./assets/images/nivio-portrait.png";
+import LetsTravelCaseStudy from "./components/LetsTravelCaseStudy";
 
-const ASSET_BASE = import.meta.env.BASE_URL;
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+const ScrollManager = () => {
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        const timer = setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return null;
 };
@@ -138,7 +146,7 @@ const Hero = () => {
           >
             <div className="relative w-full max-w-[380px] md:max-w-[450px] lg:max-w-[600px] lg:absolute lg:bottom-0 lg:right-0 z-20">
               <img 
-                src="/assets/images/photo-herocomplete.png"
+                src="/assets/images/photo-herocomplete.png" 
                 alt="Giovanny Gómez" 
                 className="w-full h-auto block object-contain relative z-20 scale-125 lg:scale-150 origin-bottom lg:origin-bottom-right translate-y-[2px]"
               />
@@ -195,7 +203,7 @@ const Projects = () => {
       title: "Noma",
       type: "App de alimentación saludable",
       description: "Diseñé una app que elimina el esfuerzo de comer bien, transformando la nutrición en un hábito simple y sostenible.",
-      image: nomaPortrait,
+      image: "/assets/images/noma-portrait.png",
       color: "bg-[#2D4A3E]",
       link: "/projects/noma"
     },
@@ -203,26 +211,18 @@ const Projects = () => {
       title: "Nivio",
       type: "App de finanzas personales",
       description: "Nivio Finance es una aplicación móvil diseñada para ayudarte a tomar el control de tus finanzas personales de forma simple, visual y transparente.",
-      image: nivioPortrait,
+      image: "/assets/images/nivio-portrait.png",
       color: "bg-[#4A90E2]",
       link: "/projects/nivio"
     },
-    /*
     {
-      title: "Lets travel",
+      title: "Let's Travel",
       type: "App de planificación de viajes",
-      description: "Plataforma integral para descubrir destinos, organizar itinerarios y gestionar reservas de forma colaborativa.",
-      image: `${ASSET_BASE}assets/images/lets-travel-portrait.png`,
-      color: "bg-[#E67E22]"
-    },
-    {
-      title: "WG interiors",
-      type: "Diseño de interiores y arquitectura",
-      description: "Portafolio digital para un estudio de diseño de interiores, enfocado en mostrar proyectos residenciales y comerciales con una estética minimalista.",
-      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop",
-      color: "bg-[#8E8E8E]"
+      description: "Plataforma colaborativa para diseñar itinerarios dinámicos, sincronizar presupuestos grupales y votar actividades en tiempo real.",
+      image: "/Lets-travel/Lets-travel-portrait-ver2.png",
+      color: "bg-[#E67E22]",
+      link: "/projects/lets-travel"
     }
-    */
   ];
 
   return (
@@ -685,21 +685,31 @@ const Home = () => {
   );
 };
 
+const AppRoutes = () => {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
+  return (
+    <div className="min-h-screen">
+      <ScrollManager />
+      {isHome && <Navbar />}
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects/noma" element={<NomaCaseStudy />} />
+          <Route path="/projects/nivio" element={<NivioCaseStudy />} />
+          <Route path="/projects/lets-travel" element={<LetsTravelCaseStudy />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <div className="min-h-screen">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects/noma" element={<NomaCaseStudy />} />
-            <Route path="/projects/nivio" element={<NivioCaseStudy />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppRoutes />
     </BrowserRouter>
   );
 }

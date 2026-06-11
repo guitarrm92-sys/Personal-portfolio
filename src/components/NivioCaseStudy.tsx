@@ -8,11 +8,36 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const ASSET_BASE = import.meta.env.BASE_URL;
+const NIVIO_SYSTEM_COMPONENTS = [
+  { name: "Botón Primario", file: "Botón primario.png", category: "controles", desc: "Interactividad principal del usuario. Color azul corporativo con estado hover." },
+  { name: "Botón Secundario", file: "Botón secundario.png", category: "controles", desc: "Interactividad secundaria o de retorno. Estilo outline claro o transparente." },
+  { name: "Textbox 2.0 (Campo de Texto)", file: "Textbox 2.0.png", category: "controles", desc: "Campo de entrada optimizado con etiqueta flotante y estados claro-oscuro." },
+  { name: "Radio Buttons (Controles de Selección)", file: "Radio buttons.png", category: "controles", desc: "Botones radiales para la selección mutuamente excluyente de opciones." },
+  { name: "Menú Superior", file: "Menú superior.png", category: "navegacion", desc: "Navegación general de la sección y atajos clave de cuenta." },
+  { name: "Menú Inferior (Tab Bar)", file: "Botom menu.png", category: "navegacion", desc: "Barra de navegación móvil táctil para cambiar instantáneamente entre flujos." },
+  { name: "Footer (Pie de Página)", file: "Footer.png", category: "navegacion", desc: "Sección de cierre con información legal, enlaces adicionales y redes." },
+  { name: "Fondo de Contenido", file: "Contenido.png", category: "layouts", desc: "Estructura de fondo semitransparente con bordes redondeados limpios." },
+  { name: "Banco de Iconos Financieros", file: "Icons bank.png", category: "layouts", desc: "Set de iconos vectoriales unificados para representar flujos del banco." },
+  { name: "Componente 5 (Widget Info)", file: "Component 5.png", category: "layouts", desc: "Módulo pequeño de resumen métrico con micro-interacción adaptativa." },
+  { name: "Vector Abstracto de Estilo", file: "Vector.png", category: "controles", desc: "Forma y decoración secundaria para fondos y contenedores dinámicos." },
+  { name: "Flecha Direccional de Enlace", file: "arrow.png", category: "controles", desc: "Icono indicador de dirección y transición rápida de pestañas." },
+  { name: "Frame 150 (Tarjeta de Tarifas)", file: "Frame 150.png", category: "layouts", desc: "Previsualizador de comisiones y límites de transacción." },
+  { name: "Frame 203 (Filtro Activo)", file: "Frame 203.png", category: "layouts", desc: "Módulo de filtrado premium con indicadores sobre el estado actual de búsqueda." },
+  { name: "Frame 242 (Selector de Cuenta)", file: "Frame 242.png", category: "layouts", desc: "Caja selectora con desglose del balance neto mensual disponible." },
+  { name: "Frame 542 (Widget de Saldo)", file: "Frame 542.png", category: "layouts", desc: "Contenedor principal con indicador circular de progreso de ahorro." },
+  { name: "Frame 543 (Widget de Tarjetas)", file: "Frame 543.png", category: "layouts", desc: "Card interactiva para visualizar tarjetas activas y saldos disponibles." },
+  { name: "Frame 544 (Dashboard Metas)", file: "Frame 544.png", category: "layouts", desc: "Módulo resumen de metas financieras por categoría con barra de progreso." },
+  { name: "Frame 545 (Tarjeta de Gasto Reciente)", file: "Frame 545.png", category: "layouts", desc: "Ficha de transacción detallada con logo del comercio e importe neto." },
+  { name: "Frame 549 (Historial de Pagos)", file: "Frame 549.png", category: "layouts", desc: "Esquema modular de transacciones pasadas ordenadas cronológicamente." },
+  { name: "Frame 673 (Resumen de Factura)", file: "Frame 673.png", category: "layouts", desc: "Detalle completo de cobros por servicios y desgloses de impuestos." },
+  { name: "Frame 674 (Tarjeta de Línea de Crédito)", file: "Frame 674.png", category: "layouts", desc: "Indicador gráfico de línea utilizada, cupo disponible y fecha de corte." }
+];
 
 const NivioCaseStudy = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeStructureTab, setActiveStructureTab] = useState("Inicio");
+  const [activeComponentCategory, setActiveComponentCategory] = useState("todos");
+  const [selectedNivioComponent, setSelectedNivioComponent] = useState<typeof NIVIO_SYSTEM_COMPONENTS[0] | null>(null);
 
   const structureTabs = [
     { id: "Inicio", name: "Inicio" },
@@ -43,9 +68,9 @@ const NivioCaseStudy = () => {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-sm font-medium hover:text-white/80 transition-colors">Sobre mí</Link>
-              <Link to="/" className="text-sm font-medium hover:text-white/80 transition-colors">Proyectos</Link>
-              <Link to="/" className="text-sm font-medium hover:text-white/80 transition-colors">Contactame</Link>
+              <Link to="/#about" className="text-sm font-medium hover:text-white/80 transition-colors">Sobre mí</Link>
+              <Link to="/#projects" className="text-sm font-medium hover:text-white/80 transition-colors">Proyectos</Link>
+              <Link to="/#contact" className="text-sm font-medium hover:text-white/80 transition-colors">Contactame</Link>
             </div>
 
             <div className="md:hidden">
@@ -63,9 +88,9 @@ const NivioCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden bg-[#2B98C4] border-t border-white/10 px-4 pt-2 pb-6 space-y-4"
           >
-            <Link to="/" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Sobre mí</Link>
-            <Link to="/" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Proyectos</Link>
-            <Link to="/" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Contactame</Link>
+            <Link to="/#about" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Sobre mí</Link>
+            <Link to="/#projects" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Proyectos</Link>
+            <Link to="/#contact" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Contactame</Link>
           </motion.div>
         )}
       </nav>
@@ -74,13 +99,13 @@ const NivioCaseStudy = () => {
       <section className="relative min-h-[700px] lg:h-screen flex items-center overflow-hidden bg-white pt-16">
         <div className="absolute inset-0 z-0">
           <img 
-            src={`${ASSET_BASE}assets/images/nivio-images/fondo-nivio-hero.png`} 
+            src="/assets/images/nivio-images/fondo-nivio-hero.png" 
             alt="Background" 
             className="w-full h-full object-cover hidden md:block"
             referrerPolicy="no-referrer"
           />
           <img 
-            src={`${ASSET_BASE}assets/images/nivio-images/fondo-nivio-movil.png`} 
+            src="/assets/images/nivio-images/fondo-nivio-movil.png" 
             alt="Background Mobile" 
             className="w-full h-full object-cover md:hidden"
             referrerPolicy="no-referrer"
@@ -170,9 +195,9 @@ const NivioCaseStudy = () => {
                     <pattern id="pattern2_1162_50308" patternContentUnits="objectBoundingBox" width="1" height="1">
                       <use href="#image2_1162_50308" transform="scale(0.00242718 0.00109051)"/>
                     </pattern>
-                    <image id="image0_1162_50308" width="412" height="963" href={`${ASSET_BASE}assets/images/1.png`}/>
-                    <image id="image1_1162_50308" width="412" height="917" href={`${ASSET_BASE}assets/images/2.png`}/>
-                    <image id="image2_1162_50308" width="412" height="917" href={`${ASSET_BASE}assets/images/3.png`}/>
+                    <image id="image0_1162_50308" width="412" height="963" href="/assets/images/1.png"/>
+                    <image id="image1_1162_50308" width="412" height="917" href="/assets/images/2.png"/>
+                    <image id="image2_1162_50308" width="412" height="917" href="/assets/images/3.png"/>
                   </defs>
                 </svg>
               </div>
@@ -233,7 +258,7 @@ const NivioCaseStudy = () => {
               >
                 <div className="w-full h-full overflow-hidden rounded-[2.8rem] bg-white">
                   <img 
-                    src={`${ASSET_BASE}assets/images/3.png`} 
+                    src="/assets/images/3.png" 
                     alt="Nivio App Context Mockup" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -467,7 +492,7 @@ const NivioCaseStudy = () => {
               {/* Stylized Card Mockup */}
               <div className="relative w-full max-w-[500px]">
                 <img 
-                  src={`${ASSET_BASE}assets/images/niviocard.svg`} 
+                  src="/assets/images/niviocard.svg" 
                   alt="Nivio Card" 
                   className="w-full h-auto drop-shadow-2xl"
                   referrerPolicy="no-referrer"
@@ -489,7 +514,7 @@ const NivioCaseStudy = () => {
             className="w-full max-w-[320px]"
           >
             <img 
-              src={`${ASSET_BASE}assets/images/nivio-images/logo-nivio-color.svg`} 
+              src="/assets/images/nivio-images/logo-nivio-color.svg" 
               alt="Logo Nivio Color" 
               className="w-full h-auto"
               referrerPolicy="no-referrer"
@@ -585,7 +610,7 @@ const NivioCaseStudy = () => {
               
               <div className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-xl p-4 lg:p-12 shadow-sm">
                 <img 
-                  src={`${ASSET_BASE}assets/images/nivio-images/arquitectura-de-la-informacion-nivio.png`} 
+                  src="/assets/images/nivio-images/arquitectura-de-la-informacion-nivio.png" 
                   alt="Arquitectura de la Información Nivio" 
                   className="w-full h-auto"
                   referrerPolicy="no-referrer"
@@ -718,12 +743,12 @@ const NivioCaseStudy = () => {
                     whileHover={{ y: -5 }}
                     className="flex flex-col gap-3 group"
                   >
-                    <div className="aspect-[9/16] bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm group-hover:shadow-xl transition-all cursor-zoom-in relative">
+                    <div className="aspect-[9/16] bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm group-hover:shadow-xl transition-all relative">
                        <img 
-                         src={`/assets/images/nivio-images/mid-wireframe-nivio/screen_fix_${i+1}.png`}
-                         alt={`Mid-fi Screen ${i+1}`}
-                         className="w-full h-full object-cover"
-                         referrerPolicy="no-referrer"
+                          src={`/assets/images/nivio-images/mid-wireframe-nivio/screen_fix_${i+1}.png`}
+                          alt={`Mid-fi Screen ${i+1}`}
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
                        />
                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
                     </div>
@@ -982,6 +1007,136 @@ const NivioCaseStudy = () => {
                 </div>
               </div>
 
+              {/* Componentes del Sistema de Diseño - NEW INTERACTIVE SECTION */}
+              <div className="mb-20">
+                <div className="flex flex-col items-start gap-4 mb-8">
+                  <div>
+                    <h4 className="text-xl font-bold text-[#1E293B]">Componentes</h4>
+                  </div>
+                  
+                  {/* Category Filter Pills */}
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { id: "todos", label: "Todos", count: NIVIO_SYSTEM_COMPONENTS.length },
+                      { id: "controles", label: "Botones y Controles", count: NIVIO_SYSTEM_COMPONENTS.filter(c => c.category === "controles").length },
+                      { id: "navegacion", label: "Navegación", count: NIVIO_SYSTEM_COMPONENTS.filter(c => c.category === "navegacion").length },
+                      { id: "layouts", label: "Estructuras y Frames", count: NIVIO_SYSTEM_COMPONENTS.filter(c => c.category === "layouts").length },
+                    ].map(tab => (
+                      <button
+                        key={tab.id}
+                        onClick={() => setActiveComponentCategory(tab.id)}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 border ${
+                          activeComponentCategory === tab.id 
+                            ? "bg-[#2B98C4] text-white border-[#2B98C4] shadow-md shadow-blue-500/10" 
+                            : "bg-white text-gray-600 border-gray-200 hover:border-gray-300"
+                        }`}
+                      >
+                        <span>{tab.label}</span>
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${activeComponentCategory === tab.id ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"}`}>{tab.count}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Components Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {NIVIO_SYSTEM_COMPONENTS.filter(comp => activeComponentCategory === "todos" || comp.category === activeComponentCategory).map((comp, idx) => (
+                    <motion.div
+                      key={comp.file}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (idx % 8) * 0.05 }}
+                      onClick={() => setSelectedNivioComponent(comp)}
+                      className="group border border-gray-200 rounded-2xl bg-white p-3 shadow-sm hover:shadow-xl transition-all hover:border-[#2B98C4]/40 cursor-pointer"
+                    >
+                      {/* Interactive Canvas Container */}
+                      <div className="h-44 w-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] bg-slate-50 border border-gray-100 rounded-xl flex items-center justify-center p-6 relative overflow-hidden transition-colors group-hover:bg-slate-100/50">
+                        <img 
+                          src={`/assets/images/nivio-images/Nivio-components/${encodeURIComponent(comp.file)}`} 
+                          alt={comp.name} 
+                          className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-110 transition-transform duration-300 ease-out"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute inset-0 bg-[#2B98C4]/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                          <span className="bg-white/90 backdrop-blur border border-gray-200 text-xs font-bold text-[#2B98C4] py-1.5 px-3 rounded-full shadow-sm flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                            <Search size={14} className="stroke-[2.5]" />
+                            Detalles
+                          </span>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                {/* Lightbox Modal */}
+                {selectedNivioComponent && (
+                  <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="bg-white rounded-3xl border border-gray-100 max-w-2xl w-full overflow-hidden shadow-2xl relative flex flex-col md:flex-row"
+                    >
+                      {/* Left: Beautiful Grid Canvas */}
+                      <div className="w-full md:w-1/2 min-h-[250px] bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] bg-slate-50 flex items-center justify-center p-12 relative border-r border-gray-100">
+                        <img 
+                          src={`/assets/images/nivio-images/Nivio-components/${encodeURIComponent(selectedNivioComponent.file)}`} 
+                          alt={selectedNivioComponent.name} 
+                          className="max-h-[200px] max-w-full object-contain filter drop-shadow-xl"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                      
+                      {/* Right: Asset Metadata & Context */}
+                      <div className="w-full md:w-1/2 p-8 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center justify-between mb-4">
+                            <span className="text-xs font-bold font-mono tracking-wider text-gray-400 uppercase">Detalle de Asset</span>
+                            <button 
+                              onClick={() => setSelectedNivioComponent(null)}
+                              className="w-8 h-8 rounded-full hover:bg-gray-150 flex items-center justify-center text-gray-400 hover:text-gray-700 transition-colors border border-gray-100 bg-slate-50"
+                            >
+                              <X size={16} />
+                            </button>
+                          </div>
+                          
+                          <h4 className="text-2xl font-black text-[#1E293B] mb-2">{selectedNivioComponent.name}</h4>
+                          <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-6 inline-block ${
+                            selectedNivioComponent.category === 'controles' ? 'bg-orange-150 text-orange-700' :
+                            selectedNivioComponent.category === 'navegacion' ? 'bg-purple-150 text-purple-700' :
+                            'bg-blue-150 text-blue-700'
+                          }`}>
+                            Categoría: {selectedNivioComponent.category}
+                          </span>
+                          
+                          <div className="space-y-4 text-sm mt-4">
+                            <div>
+                              <p className="text-xs text-gray-400 font-bold mb-1">Descripción de uso:</p>
+                              <p className="text-gray-600 font-medium leading-relaxed">{selectedNivioComponent.desc}</p>
+                            </div>
+                            <div>
+                              <p className="text-xs text-gray-400 font-bold mb-1">Ruta del archivo:</p>
+                              <code className="text-[11px] block bg-slate-50 border border-gray-150 font-mono text-gray-700 px-3 py-1.5 rounded-lg select-all">
+                                /assets/images/nivio-images/Nivio-components/{selectedNivioComponent.file}
+                              </code>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-8 pt-4 border-t border-gray-100 flex justify-end">
+                          <button
+                            onClick={() => setSelectedNivioComponent(null)}
+                            className="bg-[#2B98C4] hover:bg-[#1E88B4] text-white px-6 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md shadow-blue-500/10"
+                          >
+                            Cerrar Vista
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                )}
+              </div>
+
               {/* Hi fi wireframe Subsection */}
               <div className="overflow-hidden py-10 -mx-4 lg:-mx-12">
                 <div className="px-4 lg:px-12 mb-10">
@@ -1004,7 +1159,10 @@ const NivioCaseStudy = () => {
                     className="flex flex-nowrap gap-6"
                   >
                     {[...Array(24)].map((_, i) => (
-                      <div key={i} className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden">
+                      <div 
+                        key={i} 
+                        className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden bg-slate-900"
+                      >
                         <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
                           <img 
                             src={`/assets/images/nivio-images/hi-fi-wireframe-nivio/${i + 1}.png`}
@@ -1017,7 +1175,10 @@ const NivioCaseStudy = () => {
                     ))}
                     {/* Duplicate for infinite loop */}
                     {[...Array(24)].map((_, i) => (
-                      <div key={`dup1-${i}`} className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden">
+                      <div 
+                        key={`dup1-${i}`} 
+                        className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden bg-slate-900"
+                      >
                         <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
                           <img 
                             src={`/assets/images/nivio-images/hi-fi-wireframe-nivio/${i + 1}.png`}
@@ -1046,7 +1207,10 @@ const NivioCaseStudy = () => {
                     className="flex flex-nowrap gap-6"
                   >
                     {[...Array(24)].map((_, i) => (
-                      <div key={i + 24} className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden">
+                      <div 
+                        key={i + 24} 
+                        className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden bg-slate-900"
+                      >
                         <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
                           <img 
                             src={`/assets/images/nivio-images/hi-fi-wireframe-nivio/${i + 25}.png`}
@@ -1059,7 +1223,10 @@ const NivioCaseStudy = () => {
                     ))}
                     {/* Duplicate for infinite loop */}
                     {[...Array(24)].map((_, i) => (
-                      <div key={`dup2-${i}`} className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden">
+                      <div 
+                        key={`dup2-${i}`} 
+                        className="flex-none w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2rem] p-2 shadow-lg overflow-hidden bg-slate-900"
+                      >
                         <div className="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
                           <img 
                             src={`/assets/images/nivio-images/hi-fi-wireframe-nivio/${i + 25}.png`}
@@ -1142,7 +1309,7 @@ const NivioCaseStudy = () => {
                           className="absolute left-0 top-0 w-[220px] md:w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2.5rem] p-2 shadow-2xl z-10"
                         >
                           <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                            <img src={`${ASSET_BASE}assets/images/nivio-images/hi-fi-wireframe-nivio/2.png`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                            <img src="/assets/images/nivio-images/hi-fi-wireframe-nivio/2.png" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           </div>
                         </motion.div>
                         <motion.div 
@@ -1152,7 +1319,7 @@ const NivioCaseStudy = () => {
                           className="absolute right-0 bottom-0 w-[220px] md:w-[220px] aspect-[9/18.5] bg-[#0F172A] rounded-[2.5rem] p-2 shadow-2xl"
                         >
                           <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                            <img src={`${ASSET_BASE}assets/images/nivio-images/hi-fi-wireframe-nivio/44.png`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                            <img src="/assets/images/nivio-images/hi-fi-wireframe-nivio/44.png" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           </div>
                         </motion.div>
                     </div>
@@ -1200,7 +1367,7 @@ const NivioCaseStudy = () => {
       {/* Footer */}
       <section className="py-24 bg-white text-center">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">¿Te interesa este proyecto?</h2>
+          <h2 className="text-3xl font-bold mb-8">¿Quieres ver más?</h2>
           <div className="flex justify-center">
             <Link to="/" className="w-48 py-4 bg-[#2B98C4] text-white rounded-xl font-bold hover:bg-[#1E88B4] transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center">
               Volver al inicio
@@ -1208,6 +1375,7 @@ const NivioCaseStudy = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
   ArrowLeft, Target, Users, Lightbulb, Zap, Layout, Palette, CheckCircle2, Clock, Brain, TrendingUp, Menu, X,
-  Home, User, Settings, UserCircle, ShoppingCart, Bell, ChevronLeft, Plus, Minus, Trash2, Edit2, MapPin, Calendar, Save, Utensils, CreditCard, Search
+  Home, User, Settings, UserCircle, ShoppingCart, Bell, ChevronLeft, ChevronRight, Maximize2, Plus, Minus, Trash2, Edit2, MapPin, Calendar, Save, Utensils, CreditCard, Search
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const ASSET_BASE = import.meta.env.BASE_URL;
-
 const NomaCaseStudy = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeScreenIndex, setActiveScreenIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#F4F1EC] text-[#2F4A3E] font-sans selection:bg-[#2F4A3E] selection:text-white">
@@ -27,9 +27,9 @@ const NomaCaseStudy = () => {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-sm font-medium hover:text-white/80 transition-colors">Sobre mí</Link>
-              <Link to="/" className="text-sm font-medium hover:text-white/80 transition-colors">Proyectos</Link>
-              <Link to="/" className="text-sm font-medium hover:text-white/80 transition-colors">Contactame</Link>
+              <Link to="/#about" className="text-sm font-medium hover:text-white/80 transition-colors">Sobre mí</Link>
+              <Link to="/#projects" className="text-sm font-medium hover:text-white/80 transition-colors">Proyectos</Link>
+              <Link to="/#contact" className="text-sm font-medium hover:text-white/80 transition-colors">Contactame</Link>
             </div>
 
             <div className="md:hidden">
@@ -47,9 +47,9 @@ const NomaCaseStudy = () => {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden bg-[#4F6F5D] border-t border-white/10 px-4 pt-2 pb-6 space-y-4"
           >
-            <Link to="/" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Sobre mí</Link>
-            <Link to="/" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Proyectos</Link>
-            <Link to="/" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Contactame</Link>
+            <Link to="/#about" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Sobre mí</Link>
+            <Link to="/#projects" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Proyectos</Link>
+            <Link to="/#contact" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-white">Contactame</Link>
           </motion.div>
         )}
       </nav>
@@ -59,13 +59,13 @@ const NomaCaseStudy = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src={`${ASSET_BASE}assets/images/wireframes-noma/noma-portrait-ver3.png`} 
+            src="/assets/images/noma-portrait-ver3.png" 
             alt="Noma Background Desktop" 
             className="hidden md:block w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
           <img 
-            src={`${ASSET_BASE}assets/images/noma-portrait-movil.png`} 
+            src="/assets/images/noma-portrait-movil.png" 
             alt="Noma Background Mobile" 
             className="block md:hidden w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -90,7 +90,7 @@ const NomaCaseStudy = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-xl flex flex-col items-center md:items-start text-center md:text-left mx-auto md:mx-0 -mt-[200px] md:-mt-[150px]"
+            className="max-w-xl flex flex-col items-center md:items-start text-center md:text-left mx-auto md:mx-0 -mt-16 md:-mt-[120px]"
           >
           <div className="w-full max-w-[280px] md:max-w-[420px] mb-6 mx-auto md:mx-0">
             <svg viewBox="0 0 307 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
@@ -175,7 +175,7 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-2xl p-[15px] md:p-8 text-[#2F4A3E]"
+                className="bg-white rounded-2xl p-6 md:p-8 text-[#2F4A3E]"
               >
                 <h3 className="text-2xl font-bold mb-8">Mi rol</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -200,7 +200,7 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-white rounded-2xl p-[15px] md:p-8 text-[#2F4A3E]"
+                className="bg-white rounded-2xl p-6 md:p-8 text-[#2F4A3E]"
               >
                 <h3 className="text-2xl font-bold mb-8">Herramientas</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -224,7 +224,7 @@ const NomaCaseStudy = () => {
       </section>
 
       {/* 03 Benchmark */}
-      <section className="py-12 bg-white overflow-hidden">
+      <section className="py-24 bg-white overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -446,7 +446,7 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-[#2F4F3E] rounded-xl p-[15px] md:p-8 text-white"
+                className="bg-[#2F4F3E] rounded-xl p-6 md:p-8 text-white"
               >
                 <div className="flex flex-col sm:flex-row gap-8 mb-12">
                   <div className="w-full sm:w-1/2 aspect-square rounded-2xl overflow-hidden border-4 border-white/20">
@@ -490,7 +490,7 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-[#F4F1EC] rounded-xl p-[15px] md:p-8 text-[#2F4A3E]"
+                className="bg-[#F4F1EC] rounded-xl p-6 md:p-8 text-[#2F4A3E]"
               >
                 <h3 className="text-4xl font-bold mb-12">Personalidad</h3>
                 
@@ -522,45 +522,47 @@ const NomaCaseStudy = () => {
             </div>
 
             {/* Additional User Persona Details */}
-            <div className="grid md:grid-cols-2 gap-4 mt-8">
+            <div className="grid md:grid-cols-2 gap-6 mt-12">
               {/* Intereses */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-[#F4F1EC] rounded-xl p-3 md:p-4 text-[#2F4A3E]"
+                className="bg-[#F4F1EC] rounded-xl p-5 md:p-8 text-[#2F4A3E] flex flex-col justify-between"
               >
-                <h3 className="text-lg font-bold mb-2">Intereses</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-[#F8B4A6] rounded-xl p-1.5 text-[9px] leading-tight">
-                    <p className="font-bold mb-0.5 text-[10px]">Alimentación fácil y saludable</p>
-                    <ul className="list-disc list-inside space-y-0">
-                      <li>Productos naturales</li>
-                      <li>No ultraprocesados</li>
-                      <li>No cocinar</li>
-                      <li>Gran variedad</li>
-                    </ul>
-                  </div>
-                  <div className="bg-[#F8B4A6] rounded-xl p-1.5 text-[9px] leading-tight">
-                    <p className="font-bold mb-0.5 text-[10px]">Productividad</p>
-                    <ul className="list-disc list-inside space-y-0">
-                      <li>Habitos saludables</li>
-                      <li>Gestión del tiempo</li>
-                    </ul>
-                  </div>
-                  <div className="bg-[#F8B4A6] rounded-xl p-1.5 text-[9px] leading-tight">
-                    <p className="font-bold mb-0.5 text-[10px]">Bienestar</p>
-                    <ul className="list-disc list-inside space-y-0">
-                      <li>Ejercicio funcional</li>
-                    </ul>
-                  </div>
-                  <div className="bg-[#F8B4A6] rounded-xl p-1.5 text-[9px] leading-tight">
-                    <p className="font-bold mb-0.5 text-[10px]">Tecnología</p>
-                    <ul className="list-disc list-inside space-y-0">
-                      <li>Suscripciones</li>
-                      <li>Automatización de tareas</li>
-                      <li>Agenda digital</li>
-                    </ul>
+                <div>
+                  <h3 className="text-xl font-bold mb-6">Intereses</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-[#F8B4A6] rounded-xl p-4 text-xs leading-relaxed">
+                      <p className="font-bold mb-2 text-sm">Alimentación fácil</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>Productos naturales</li>
+                        <li>No ultraprocesados</li>
+                        <li>No cocinar</li>
+                        <li>Gran variedad</li>
+                      </ul>
+                    </div>
+                    <div className="bg-[#F8B4A6] rounded-xl p-4 text-xs leading-relaxed">
+                      <p className="font-bold mb-2 text-sm">Productividad</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>Hábitos saludables</li>
+                        <li>Gestión del tiempo</li>
+                      </ul>
+                    </div>
+                    <div className="bg-[#F8B4A6] rounded-xl p-4 text-xs leading-relaxed">
+                      <p className="font-bold mb-2 text-sm">Bienestar</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>Ejercicio funcional</li>
+                      </ul>
+                    </div>
+                    <div className="bg-[#F8B4A6] rounded-xl p-4 text-xs leading-relaxed">
+                      <p className="font-bold mb-2 text-sm">Tecnología</p>
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>Suscripciones</li>
+                        <li>Automatización</li>
+                        <li>Agenda digital</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -571,15 +573,17 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-[#F4F1EC] rounded-xl p-3 md:p-4 text-[#2F4A3E]"
+                className="bg-[#F4F1EC] rounded-xl p-5 md:p-8 text-[#2F4A3E] flex flex-col justify-between"
               >
-                <h3 className="text-lg font-bold mb-2">Influencias</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  {['Ecomerce', 'Suscripciones', 'Moda', 'Fitness', 'Nutrición', 'Opiniones y reseñas'].map(tag => (
-                    <div key={tag} className="bg-[#98E4B1] rounded-lg p-1.5 text-[9px] font-medium flex items-center justify-center text-center">
-                      {tag}
-                    </div>
-                  ))}
+                <div>
+                  <h3 className="text-xl font-bold mb-6">Influencias</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {['Ecommerce', 'Suscripciones', 'Moda', 'Fitness', 'Nutrición', 'Opiniones y reseñas'].map(tag => (
+                      <div key={tag} className="bg-[#98E4B1] rounded-lg p-4 text-xs font-semibold flex items-center justify-center text-center">
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
 
@@ -589,22 +593,24 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="bg-[#F4F1EC] rounded-xl p-3 md:p-4 text-[#2F4A3E]"
+                className="bg-[#F4F1EC] rounded-xl p-5 md:p-8 text-[#2F4A3E] flex flex-col justify-between"
               >
-                <h3 className="text-lg font-bold mb-2">Objetivos</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-[#8ED8F8] rounded-xl p-1.5 text-[9px] flex items-center">
-                    <p className="font-medium">Comer saludable en su rutina diaria</p>
-                  </div>
-                  <div className="bg-[#8ED8F8] rounded-xl p-1.5 text-[9px] space-y-0">
-                    <p className="font-medium">Mantener en buenas condiciones su condición física</p>
-                    <p className="font-medium">Sentirse a gusto con sigo misma</p>
-                  </div>
-                  <div className="bg-[#8ED8F8] rounded-xl p-1.5 text-[9px] flex items-center">
-                    <p className="font-medium">No tener que preocuparse por lo que come</p>
-                  </div>
-                  <div className="bg-[#8ED8F8] rounded-xl p-1.5 text-[9px] flex items-center">
-                    <p className="font-medium">No cocinar diariamente</p>
+                <div>
+                  <h3 className="text-xl font-bold mb-6">Objetivos</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-[#8ED8F8] rounded-xl p-4 text-xs font-semibold flex items-center">
+                      <p>Comer saludable en su rutina diaria</p>
+                    </div>
+                    <div className="bg-[#8ED8F8] rounded-xl p-4 text-xs font-semibold space-y-1">
+                      <p>Mantener en buenas condiciones su condición física</p>
+                      <p>Sentirse a gusto consigo misma</p>
+                    </div>
+                    <div className="bg-[#8ED8F8] rounded-xl p-4 text-xs font-semibold flex items-center">
+                      <p>No tener que preocuparse por lo que come</p>
+                    </div>
+                    <div className="bg-[#8ED8F8] rounded-xl p-4 text-xs font-semibold flex items-center">
+                      <p>No cocinar diariamente</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -615,27 +621,29 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-[#F4F1EC] rounded-xl p-[15px] md:p-6 text-[#2F4A3E]"
+                className="bg-[#F4F1EC] rounded-xl p-5 md:p-8 text-[#2F4A3E] flex flex-col justify-between"
               >
-                <h3 className="text-2xl font-bold mb-4">Necesidades y expectativas</h3>
-                <div className="grid grid-cols-2 gap-4 text-xs leading-tight">
-                  <div className="bg-[#F8C486] rounded-xl p-4">
-                    <p>La comida debe ser saludable</p>
-                  </div>
-                  <div className="bg-[#F8C486] rounded-xl p-4">
-                    <p>Debe ser facil de pedir y decidir que comida quiero</p>
-                  </div>
-                  <div className="bg-[#F8C486] rounded-xl p-4">
-                    <p>El servicio de entrega debe ser confiable y flexible</p>
-                  </div>
-                  <div className="bg-[#F8C486] rounded-xl p-4">
-                    <p>La información sobra la comida debe ser completa, facil de entender y leer</p>
-                  </div>
-                  <div className="bg-[#F8C486] rounded-xl p-4">
-                    <p>El proceso de pago deber ser facil y claro de entender</p>
-                  </div>
-                  <div className="bg-[#F8C486] rounded-xl p-4">
-                    <p>La información de las entregas debe ser clara</p>
+                <div>
+                  <h3 className="text-xl font-bold mb-6">Necesidades y expectativas</h3>
+                  <div className="grid grid-cols-2 gap-4 text-xs font-semibold leading-relaxed">
+                    <div className="bg-[#F8C486] rounded-xl p-4">
+                      <p>La comida debe ser saludable</p>
+                    </div>
+                    <div className="bg-[#F8C486] rounded-xl p-4">
+                      <p>Debe ser fácil de pedir y decidir qué comida quiero</p>
+                    </div>
+                    <div className="bg-[#F8C486] rounded-xl p-4">
+                      <p>El servicio de entrega debe ser confiable y flexible</p>
+                    </div>
+                    <div className="bg-[#F8C486] rounded-xl p-4">
+                      <p>La información sobre la comida debe ser completa y fácil de leer</p>
+                    </div>
+                    <div className="bg-[#F8C486] rounded-xl p-4">
+                      <p>El proceso de pago debe ser simple y claro de entender</p>
+                    </div>
+                    <div className="bg-[#F8C486] rounded-xl p-4">
+                      <p>La información de las entregas debe ser transparente</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -646,21 +654,23 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-[#F4F1EC] rounded-xl p-[15px] md:p-8 text-[#2F4A3E]"
+                className="bg-[#F4F1EC] rounded-xl p-5 md:p-8 text-[#2F4A3E] flex flex-col justify-between"
               >
-                <h3 className="text-2xl font-bold mb-8">Motivaciones</h3>
-                <div className="grid grid-cols-2 gap-4 text-xs leading-tight">
-                  <div className="bg-[#D8B6FF] rounded-xl p-4 h-20 flex items-center">
-                    <p>Mantener una imagen de persona organizada y consciente.</p>
-                  </div>
-                  <div className="bg-[#D8B6FF] rounded-xl p-4 h-20 flex items-center">
-                    <p>Biesnestar sin sacrificio.</p>
-                  </div>
-                  <div className="bg-[#D8B6FF] rounded-xl p-4 h-20 flex items-center">
-                    <p>Poder organizar su rutina diara de manera fácil y eficiente.</p>
-                  </div>
-                  <div className="bg-[#D8B6FF] rounded-xl p-4 h-20 flex items-center">
-                    <p>Comer sin preocupaciones.</p>
+                <div>
+                  <h3 className="text-xl font-bold mb-6">Motivaciones</h3>
+                  <div className="grid grid-cols-2 gap-4 text-xs font-semibold leading-relaxed">
+                    <div className="bg-[#D8B6FF] rounded-xl p-4 h-24 flex items-center">
+                      <p>Mantener una imagen de persona organizada y consciente.</p>
+                    </div>
+                    <div className="bg-[#D8B6FF] rounded-xl p-4 h-24 flex items-center">
+                      <p>Bienestar sin sacrificio.</p>
+                    </div>
+                    <div className="bg-[#D8B6FF] rounded-xl p-4 h-24 flex items-center">
+                      <p>Organizar su rutina diaria de manera fácil y eficiente.</p>
+                    </div>
+                    <div className="bg-[#D8B6FF] rounded-xl p-4 h-24 flex items-center">
+                      <p>Comer sin preocupaciones de planeación.</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -671,18 +681,20 @@ const NomaCaseStudy = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="bg-[#F4F1EC] rounded-xl p-[15px] md:p-8 text-[#2F4A3E]"
+                className="bg-[#F4F1EC] rounded-xl p-5 md:p-8 text-[#2F4A3E] flex flex-col justify-between"
               >
-                <h3 className="text-2xl font-bold mb-8">Dolores</h3>
-                <div className="grid grid-cols-2 gap-4 text-xs leading-tight">
-                  <div className="bg-[#F8D876] rounded-xl p-4 h-20 flex items-center">
-                    <p>No tiene tiempo para esta cocinando o decidiendo que cocinar</p>
-                  </div>
-                  <div className="bg-[#F8D876] rounded-xl p-4 h-20 flex items-center">
-                    <p>Desea comer alimentos balaneceados nutricionalmente</p>
-                  </div>
-                  <div className="bg-[#F8D876] rounded-xl p-4 h-20 flex items-center">
-                    <p>Desea que sea algo sostenible y confiable</p>
+                <div>
+                  <h3 className="text-xl font-bold mb-6">Dolores</h3>
+                  <div className="grid grid-cols-2 gap-4 text-xs font-semibold leading-relaxed">
+                    <div className="bg-[#F8D876] rounded-xl p-4 h-24 flex items-center">
+                      <p>Falta de tiempo para cocinar o decidir qué preparar diariamente</p>
+                    </div>
+                    <div className="bg-[#F8D876] rounded-xl p-4 h-24 flex items-center">
+                      <p>Desea comer alimentos balanceados nutricionalmente sin esfuerzo</p>
+                    </div>
+                    <div className="bg-[#F8D876] rounded-xl p-4 h-24 flex items-center">
+                      <p>Busca una solución de alimentación saludable que sea sostenible</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -773,7 +785,7 @@ const NomaCaseStudy = () => {
             >
               <div className="w-full rounded-xl overflow-hidden bg-white border border-[#2F4A3E]/5 flex items-center justify-center">
                 <img 
-                  src={`${ASSET_BASE}assets/images/user-flow-noma.png`} 
+                  src="/assets/images/user-flow-noma.png" 
                   alt="Diagrama de flujo de usuario NOMA" 
                   className="w-full h-auto object-contain"
                   referrerPolicy="no-referrer"
@@ -847,7 +859,7 @@ const NomaCaseStudy = () => {
           viewport={{ once: true }}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <div className="w-full p-[15px] md:p-0">
+          <div className="w-full">
             <div className="flex items-center gap-6 mb-12">
               <div className="w-14 h-14 rounded-full border border-[#2F4A3E]/20 bg-white flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl font-bold text-[#2F4A3E]">9</span>
@@ -870,7 +882,7 @@ const NomaCaseStudy = () => {
                 <div className="bg-white rounded-xl p-[15px] md:p-16 shadow-sm border border-[#2F4A3E]/5">
                   <div className="w-full rounded-xl flex items-center justify-center overflow-hidden">
                     <img 
-                      src={`${ASSET_BASE}assets/images/midfi-wireframe-noma.png`} 
+                      src="/assets/images/midfi-wireframe-noma.png" 
                       alt="Mid-fi wireframes NOMA" 
                       className="w-full h-auto object-contain"
                       referrerPolicy="no-referrer"
@@ -1109,10 +1121,10 @@ const NomaCaseStudy = () => {
                       <div className="space-y-6 overflow-hidden">
                         <div className="flex gap-2 md:gap-4 overflow-x-auto pb-4 scrollbar-hide">
                           {[
-                            { title: 'Ensalada de atún con aguacate', img: `${ASSET_BASE}assets/images/food1.png` },
-                            { title: 'Bowl saludable de pollo estilo fajita', img: `${ASSET_BASE}assets/images/food2.png` },
-                            { title: 'Ensalada de pollo fajita', img: `${ASSET_BASE}assets/images/food3.png` },
-                            { title: 'Tazon de yogurt con frutos y miel', img: `${ASSET_BASE}assets/images/food4.png` }
+                            { title: 'Ensalada de atún con aguacate', img: '/assets/images/food1.png' },
+                            { title: 'Bowl saludable de pollo estilo fajita', img: '/assets/images/food2.png' },
+                            { title: 'Ensalada de pollo fajita', img: '/assets/images/food3.png' },
+                            { title: 'Tazon de yogurt con frutos y miel', img: '/assets/images/food4.png' }
                           ].map((item, i) => (
                             <div key={i} className="w-[100px] md:w-[120px] flex-shrink-0 space-y-2">
                               <div className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-xl overflow-hidden bg-gray-100 border border-[#2F4A3E]/5">
@@ -1240,7 +1252,7 @@ const NomaCaseStudy = () => {
                         <div className="bg-[#F4F7F6] p-[15px] rounded-xl border border-[#2F4A3E]/5 space-y-3 shadow-sm overflow-hidden">
                           <div className="flex flex-col sm:flex-row gap-4">
                             <div className="w-full sm:w-[150px] h-[110px] rounded-lg overflow-hidden flex-shrink-0 border border-[#2F4A3E]/5">
-                              <img src={`${ASSET_BASE}assets/images/food1.png`} alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                              <img src="/assets/images/food1.png" alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
                             <div className="flex-1 space-y-2 py-1">
                               <h5 className="text-xs font-bold leading-tight text-[#2F4A3E]">Bowl de atún sellado con vegetales</h5>
@@ -1264,7 +1276,7 @@ const NomaCaseStudy = () => {
                         <div className="bg-[#8FAEA1] p-[15px] rounded-xl border border-[#2F4A3E]/5 space-y-3 shadow-md overflow-hidden">
                           <div className="flex flex-col sm:flex-row gap-4">
                             <div className="w-full sm:w-[150px] h-[110px] rounded-lg overflow-hidden flex-shrink-0 border border-white/20">
-                              <img src={`${ASSET_BASE}assets/images/food1.png`} alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                              <img src="/assets/images/food1.png" alt="Product" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                             </div>
                             <div className="flex-1 space-y-2 py-1">
                               <h5 className="text-xs font-bold leading-tight text-white">Bowl de atún sellado con vegetales</h5>
@@ -1304,7 +1316,7 @@ const NomaCaseStudy = () => {
       </section>
 
       {/* Hi-fidelity Wireframe Section */}
-      <section className="pb-24 bg-[#F4F1EC]/30 overflow-hidden w-full">
+      <section className="bg-[#F4F1EC]/30 overflow-hidden w-full">
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1346,89 +1358,166 @@ const NomaCaseStudy = () => {
           </div>
 
           {/* Content Wrapper (Centered) */}
-          <div className="relative z-10 w-full overflow-hidden py-12 md:py-0 mt-[150px]">
-            {/* Desktop Display (Staggered) */}
-            <div className="hidden md:flex items-center justify-center -space-x-16">
-              {[
-                { id: 1, label: 'Splash', rotate: -14, y: 80, scale: 0.39, z: 10, img: `${ASSET_BASE}assets/images/wireframes-noma/noma1.png` },
-                { id: 2, label: 'Login', rotate: -10, y: 50, scale: 0.45, z: 20, img: `${ASSET_BASE}assets/images/wireframes-noma/noma2.png` },
-                { id: 3, label: 'Home', rotate: -6, y: 25, scale: 0.50, z: 30, img: `${ASSET_BASE}assets/images/wireframes-noma/noma3.png` },
-                { id: 4, label: 'Menu', rotate: -2, y: 10, scale: 0.56, z: 40, img: `${ASSET_BASE}assets/images/wireframes-noma/noma-4.png` },
-                { id: 5, label: 'Product', rotate: 2, y: 10, scale: 0.56, z: 40, img: `${ASSET_BASE}assets/images/wireframes-noma/noma5.png` },
-                { id: 6, label: 'Cart', rotate: 6, y: 25, scale: 0.50, z: 30, img: `${ASSET_BASE}assets/images/wireframes-noma/noma6.png` },
-                { id: 7, label: 'Checkout', rotate: 10, y: 50, scale: 0.45, z: 20, img: `${ASSET_BASE}assets/images/wireframes-noma/noma7.png` },
-                { id: 8, label: 'Success', rotate: 14, y: 80, scale: 0.39, z: 10, img: `${ASSET_BASE}assets/images/wireframes-noma/noma8.png` },
-              ].map((screen, index) => (
-                <motion.div
-                  key={screen.id}
-                  initial={{ opacity: 0, y: 100, rotate: 0 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: screen.y,
-                    rotate: screen.rotate,
-                  }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    delay: index * 0.1, 
-                    duration: 0.8,
-                    ease: [0.21, 0.47, 0.32, 0.98]
-                  }}
-                  style={{ zIndex: screen.z, scale: screen.scale }}
-                  className="flex-shrink-0 w-[240px] relative"
-                >
-                  <img 
-                    src={screen.img} 
-                    alt={screen.label} 
-                    className="w-full h-auto rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-black/5"
-                    referrerPolicy="no-referrer"
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Mobile Display (Vertical/Loop Carousel) */}
-            <div className="md:hidden flex overflow-hidden">
-              <motion.div
-                className="flex gap-6 animate-marquee flex-nowrap"
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{ 
-                  duration: 20, 
-                  repeat: Infinity, 
-                  ease: "linear" 
-                }}
+          <div className="relative z-10 w-full mt-[120px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative group/carousel">
+              {/* Carousel Track with smooth custom scrollbar */}
+              <div 
+                id="noma-screens-track"
+                className="flex gap-6 overflow-x-auto pb-8 pt-4 scrollbar-none snap-x snap-mandatory"
               >
                 {[
-                  { id: 1, label: 'Splash', img: `${ASSET_BASE}assets/images/wireframes-noma/noma1.png` },
-                  { id: 2, label: 'Login', img: `${ASSET_BASE}assets/images/wireframes-noma/noma2.png` },
-                  { id: 3, label: 'Home', img: `${ASSET_BASE}assets/images/wireframes-noma/noma3.png` },
-                  { id: 4, label: 'Menu', img: `${ASSET_BASE}assets/images/wireframes-noma/noma-4.png` },
-                  { id: 5, label: 'Product', img: `${ASSET_BASE}assets/images/wireframes-noma/noma5.png` },
-                  { id: 6, label: 'Cart', img: `${ASSET_BASE}assets/images/wireframes-noma/noma6.png` },
-                  { id: 7, label: 'Checkout', img: `${ASSET_BASE}assets/images/wireframes-noma/noma7.png` },
-                  { id: 8, label: 'Success', img: `${ASSET_BASE}assets/images/wireframes-noma/noma8.png` },
-                  // Duplicated for loop
-                  { id: 9, label: 'Splash', img: `${ASSET_BASE}assets/images/wireframes-noma/noma1.png` },
-                  { id: 10, label: 'Login', img: `${ASSET_BASE}assets/images/wireframes-noma/noma2.png` },
-                  { id: 11, label: 'Home', img: `${ASSET_BASE}assets/images/wireframes-noma/noma3.png` },
-                  { id: 12, label: 'Menu', img: `${ASSET_BASE}assets/images/wireframes-noma/noma-4.png` },
-                  { id: 13, label: 'Product', img: `${ASSET_BASE}assets/images/wireframes-noma/noma5.png` },
-                  { id: 14, label: 'Cart', img: `${ASSET_BASE}assets/images/wireframes-noma/noma6.png` },
-                  { id: 15, label: 'Checkout', img: `${ASSET_BASE}assets/images/wireframes-noma/noma7.png` },
-                  { id: 16, label: 'Success', img: `${ASSET_BASE}assets/images/wireframes-noma/noma8.png` },
-                ].map((screen, i) => (
-                  <div key={i} className="flex-shrink-0 w-[224px]">
-                    <img 
-                      src={screen.img} 
-                      alt={screen.label} 
-                      className="w-full h-auto rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.15)] border border-black/5"
-                      referrerPolicy="no-referrer"
-                    />
-                    <p className="text-[#2F4A3E] font-bold text-center mt-4 opacity-60 uppercase tracking-widest text-[10px]">{screen.label}</p>
-                  </div>
+                  { id: 1, label: 'Splash Screen', img: '/assets/images/Noma1.png' },
+                  { id: 2, label: 'Login Screen', img: '/assets/images/Noma2.png' },
+                  { id: 3, label: 'Home Screen', img: '/assets/images/Noma3.png' },
+                  { id: 4, label: 'Menu & Categories', img: '/assets/images/Noma4.png' },
+                  { id: 5, label: 'Product Detail', img: '/assets/images/Noma5.png' },
+                  { id: 6, label: 'Shopping Cart', img: '/assets/images/Noma6.png' },
+                  { id: 7, label: 'Secure Checkout', img: '/assets/images/Noma7.png' },
+                  { id: 8, label: 'Order Success', img: '/assets/images/Noma8.png' },
+                  { id: 9, label: 'Profile Screen', img: '/assets/images/Noma9.png' },
+                ].map((screen, idx) => (
+                  <motion.div
+                    key={screen.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05, duration: 0.5 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className="flex-shrink-0 w-[240px] sm:w-[280px] snap-center cursor-zoom-in group/card relative"
+                    onClick={() => {
+                      setActiveScreenIndex(idx);
+                      setLightboxOpen(true);
+                    }}
+                  >
+                    {/* Device outline design representation inside card */}
+                    <div className="bg-[#1E2E27]/5 border border-black/[0.08] hover:border-black/[0.15] rounded-[38px] p-2.5 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
+                      <div className="relative aspect-[9/19.5] rounded-[28px] overflow-hidden bg-[#2F4A3E]">
+                        <img 
+                          src={screen.img} 
+                          alt={screen.label} 
+                          className="w-full h-full object-cover select-none"
+                          referrerPolicy="no-referrer"
+                        />
+                        {/* Hover Overlay Zoom Cursor Effect */}
+                        <div className="absolute inset-0 bg-[#2F4A3E]/30 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/25 shadow-lg">
+                            <Maximize2 size={20} className="text-white" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Hover indicator overlay on the card or similar is kept, but bottom details are removed */}
+                  </motion.div>
                 ))}
-              </motion.div>
+              </div>
+
+              {/* Scroll Indicators Overlay */}
+              <div className="flex justify-center items-center gap-3 mt-4">
+                <button
+                  onClick={() => {
+                    const track = document.getElementById('noma-screens-track');
+                    if (track) track.scrollBy({ left: -300, behavior: 'smooth' });
+                  }}
+                  className="w-10 h-10 rounded-full border border-black/10 bg-white/80 hover:bg-white text-[#2F4A3E] shadow-sm flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  title="Desplazar izquierda"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <span className="text-xs font-mono font-bold text-neutral-400">Desliza para ver más</span>
+                <button
+                  onClick={() => {
+                    const track = document.getElementById('noma-screens-track');
+                    if (track) track.scrollBy({ left: 300, behavior: 'smooth' });
+                  }}
+                  className="w-10 h-10 rounded-full border border-black/10 bg-white/80 hover:bg-white text-[#2F4A3E] shadow-sm flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  title="Desplazar derecha"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
             </div>
           </div>
+
+          {/* Detailed Image Lightbox/Zoom view */}
+          {lightboxOpen && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+              {/* Overlay background */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                onClick={() => setLightboxOpen(false)}
+                className="absolute inset-0 bg-black/90 backdrop-blur-lg cursor-zoom-out"
+              />
+
+              {/* Close button with high-layer */}
+              <button 
+                onClick={() => setLightboxOpen(false)}
+                className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer border border-white/10"
+                title="Cerrar modal"
+              >
+                <X size={24} />
+              </button>
+
+              {/* Lightbox Content Frame */}
+              <div className="relative z-10 max-w-4xl max-h-[85vh] flex flex-col justify-center items-center">
+                
+                {/* Central active image display */}
+                <div className="flex items-center gap-4 md:gap-8 w-full">
+                  {/* Left arrow on lightbox */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveScreenIndex(prev => prev === 0 ? 8 : prev - 1);
+                    }}
+                    className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/10 flex items-center justify-center shrink-0 active:scale-95 transition-all cursor-pointer"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+
+                  <div className="relative max-h-[70vh] flex justify-center items-center overflow-hidden rounded-2xl md:rounded-[24px] shadow-2xl border border-white/10 bg-neutral-900">
+                    <motion.img 
+                      key={`lightbox-${activeScreenIndex}`}
+                      src={[
+                        '/assets/images/Noma1.png',
+                        '/assets/images/Noma2.png',
+                        '/assets/images/Noma3.png',
+                        '/assets/images/Noma4.png',
+                        '/assets/images/Noma5.png',
+                        '/assets/images/Noma6.png',
+                        '/assets/images/Noma7.png',
+                        '/assets/images/Noma8.png',
+                        '/assets/images/Noma9.png'
+                      ][activeScreenIndex]} 
+                      alt="Noma Screen hifi zoom" 
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="max-h-[70vh] w-auto object-contain"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+
+                  {/* Right arrow on lightbox */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveScreenIndex(prev => prev === 8 ? 0 : prev + 1);
+                    }}
+                    className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/10 flex items-center justify-center shrink-0 active:scale-95 transition-all cursor-pointer"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </div>
+
+                {/* Subtitle / Details info at bottom - Titles and descriptions removed */}
+                <div className="text-center mt-4 text-white select-none px-4">
+                  <p className="text-xs text-[#D4A373] tracking-widest font-mono uppercase font-black">
+                    PANTALLA {activeScreenIndex + 1} DE 09 • CLIC FUERA PARA CERRAR
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          )}
         </motion.div>
       </section>
 
@@ -1458,7 +1547,7 @@ const NomaCaseStudy = () => {
               >
                 <div className="relative w-[280px] md:w-[320px]">
                   <img 
-                    src={`${ASSET_BASE}assets/images/wireframes-noma/noma5-1.png`} 
+                    src="/assets/images/noma5-1.png" 
                     alt="Features Mockup" 
                     className="w-full h-auto rounded-[40px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] border-[4px] border-[#D4A373]"
                     referrerPolicy="no-referrer"

@@ -16,3 +16,13 @@
     @apply bg-brand-bg text-brand-dark font-sans antialiased;
   }
 }
+
+/* Custom utility class to hide scrollbars while retaining full horizontal touch-swipe / swipe capability */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
