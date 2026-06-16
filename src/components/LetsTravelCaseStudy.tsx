@@ -2485,7 +2485,7 @@ const LetsTravelCaseStudy = () => {
                 <iframe 
                   style={{ border: "none" }} 
                   className="absolute inset-0 w-full h-full"
-                  src="https://embed.figma.com/proto/33P6mpTMlQQyq9h5w0K8NO/App-let%C2%B4s-travel-lo--fi-ver-3.0?node-id=1838-75980&viewport=60%2C216%2C0.14&scaling=contain&content-scaling=responsive&page-id=1832%3A72857&starting-point-node-id=1861%3A78459&embed-host=share" 
+                  src="https://embed.figma.com/proto/33P6mpTMlQQyq9h5w0K8NO/App-let%C2%B4s-travel?node-id=1838-75980&viewport=60%2C216%2C0.14&scaling=contain&content-scaling=fixed&starting-point-node-id=1861%3A78459&page-id=1832%3A72857&embed-host=share"
                   allowFullScreen
                   title="Let's Travel Interactivo"
                 />
