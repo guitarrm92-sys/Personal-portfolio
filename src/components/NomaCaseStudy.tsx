@@ -1373,7 +1373,6 @@ const NomaCaseStudy = () => {
                   { id: 5, label: 'Product Detail', img: '/assets/images/Noma5.png' },
                   { id: 6, label: 'Shopping Cart', img: '/assets/images/Noma6.png' },
                   { id: 7, label: 'Secure Checkout', img: '/assets/images/Noma7.png' },
-                  { id: 8, label: 'Order Success', img: '/assets/images/Noma8.png' },
                   { id: 9, label: 'Profile Screen', img: '/assets/images/Noma9.png' },
                 ].map((screen, idx) => (
                   <motion.div
@@ -1467,7 +1466,7 @@ const NomaCaseStudy = () => {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setActiveScreenIndex(prev => prev === 0 ? 8 : prev - 1);
+                      setActiveScreenIndex(prev => prev === 0 ? 7 : prev - 1);
                     }}
                     className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/10 flex items-center justify-center shrink-0 active:scale-95 transition-all cursor-pointer"
                   >
@@ -1485,7 +1484,6 @@ const NomaCaseStudy = () => {
                         '/assets/images/Noma5.png',
                         '/assets/images/Noma6.png',
                         '/assets/images/Noma7.png',
-                        '/assets/images/Noma8.png',
                         '/assets/images/Noma9.png'
                       ][activeScreenIndex]} 
                       alt="Noma Screen hifi zoom" 
@@ -1500,7 +1498,7 @@ const NomaCaseStudy = () => {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setActiveScreenIndex(prev => prev === 8 ? 0 : prev + 1);
+                      setActiveScreenIndex(prev => prev === 7 ? 0 : prev + 1);
                     }}
                     className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/10 flex items-center justify-center shrink-0 active:scale-95 transition-all cursor-pointer"
                   >
@@ -1511,7 +1509,7 @@ const NomaCaseStudy = () => {
                 {/* Subtitle / Details info at bottom - Titles and descriptions removed */}
                 <div className="text-center mt-4 text-white select-none px-4">
                   <p className="text-xs text-[#D4A373] tracking-widest font-mono uppercase font-black">
-                    PANTALLA {activeScreenIndex + 1} DE 09 • CLIC FUERA PARA CERRAR
+                    PANTALLA {activeScreenIndex + 1} DE 08 • CLIC FUERA PARA CERRAR
                   </p>
                 </div>
 
